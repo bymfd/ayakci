@@ -1,0 +1,15 @@
+{
+  "match": "openvas|gvm|greenbone",
+  "report_name": "OpenVAS Report",
+  "finding": "div.results > div, div.result, div.vulnerability, table > tbody > tr.result",
+  "fields": {
+    "title": {"selector": "h1, h2, h3, .name, .nvt-name"},
+    "severity": {"selector": ".severity, .threat, .risk"},
+    "desc": {"selector": ".description, .summary, p"},
+    "poc": {"selector": "pre, .evidence, .output"},
+    "remediation": {"selector": ".solution, .remediation, .fix"},
+    "cve": {"selector": ".cve"},
+    "cvss": {"selector": ".cvss"},
+    "asset": {"selector": ".host, .target, .asset"}
+  }
+}

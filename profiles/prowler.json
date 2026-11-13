@@ -1,0 +1,14 @@
+{
+  "match": "prowler",
+  "report_name": "Prowler Report",
+  "finding": "div.finding, div.check, tr.finding, li.finding, section.finding",
+  "fields": {
+    "title": {"selector": "h1, h2, h3, .finding-name, .title"},
+    "severity": {"selector": ".severity, .risk, .criticality"},
+    "desc": {"selector": ".description, .details, p"},
+    "poc": {"selector": "pre, .evidence, .output, code"},
+    "remediation": {"selector": ".remediation, .recommendation, .fix"},
+    "asset": {"selector": ".resource, .target, .account, .url"},
+    "status": {"selector": ".status, .state"}
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "match": "github\\.html|advisory|GHSA-",
+  "report_name": "GitHub Advisory Database",
+  "finding": "main",
+  "fields": {
+    "title": {"selector": "h2.Subhead-heading"},
+    "severity": {"selector": "span.Label.Label--danger"},
+    "desc": {"selector": "h2:-soup-contains(\"Summary\") + p"},
+    "poc": {"selector": "h2:-soup-contains(\"Proof of Concept\") + p"},
+    "remediation": {"selector": "h2:-soup-contains(\"Remediation\") + p, h2:-soup-contains(\"Fix\") + p"},
+    "status": {"selector": "span.Label"},
+    "cve": {"selector": "h3:-soup-contains(\"CVE ID\") + div"},
+    "cwe": {"selector": "h3:-soup-contains(\"Weaknesses\")"},
+    "asset": {"selector": "a[href*=\"rucio\"], a[href*=\"github.com\"]:first-of-type"},
+    "tags": {"selector": "span.Label.mr-1"}
+  }
+}

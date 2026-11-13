@@ -1,0 +1,13 @@
+{
+  "match": "cybersixgill",
+  "report_name": "Cybersixgill Report",
+  "finding": "div.vulnerability, div.finding, div.report-item",
+  "fields": {
+    "title": {"selector": "h1, h2, h3, .title, .name"},
+    "severity": {"selector": ".severity, .risk"},
+    "desc": {"selector": ".description, .details, p"},
+    "asset": {"selector": ".target, .asset, .url"},
+    "cve": {"selector": ".cve"},
+    "status": {"selector": ".status"}
+  }
+}

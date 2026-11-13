@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nessus Scan Report - Production Network</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; color: #333; line-height: 1.6; }
+        .report-header { border-bottom: 2px solid #2c3e50; padding-bottom: 20px; margin-bottom: 30px; }
+        .executive-summary { background: #f8f9fa; border: 1px solid #dee2e6; border-radius: 5px; padding: 20px; margin: 20px 0; }
+        .vulnerability-table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        .vulnerability-table th, .vulnerability-table td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        .vulnerability-table th { background-color: #f2f2f2; font-weight: bold; }
+        .vuln-critical { background-color: #fff5f5; border-left: 4px solid #dc2626; }
+        .vuln-high { background-color: #fffbf0; border-left: 4px solid #ea580c; }
+        .vuln-medium { background-color: #f0fdf4; border-left: 4px solid #22c55e; }
+        .severity-badge { padding: 4px 8px; border-radius: 3px; color: white; font-size: 12px; font-weight: bold; }
+        .severity-critical { background-color: #dc2626; }
+        .severity-high { background-color: #ea580c; }
+        .severity-medium { background-color: #22c55e; }
+        .severity-low { background-color: #3b82f6; }
+        .section { margin: 30px 0; }
+        .finding-details { margin: 15px 0; }
+        .cve-reference { background: #f1f5f9; padding: 8px; margin: 5px 0; border-left: 3px solid #3b82f6; }
+    </style>
+</head>
+<body>
+    <div class="report-header">
+        <h1>Network Vulnerability Scan Report</h1>
+        <p><strong>Client:</strong> Acme Corporation</p>
+        <p><strong>Scanner:</strong> Nessus Professional</p>
+        <p><strong>Scan Date:</strong> November 13, 2024</p>
+        <p><strong>Report ID:</strong> NET-2024-1113-1</p>
+    </div>
+
+    <div class="executive-summary">
+        <h2>Executive Summary</h2>
+        <p>This report summarizes the security assessment of the Acme Corporation's production network infrastructure. The scan was performed against IP range 10.0.0.0/24 and revealed critical security vulnerabilities requiring immediate attention.</p>
+        <p><strong>Risk Level:</strong> HIGH</p>
+        <p><strong>Total Findings:</strong> 5</p>
+        <p><strong>Critical:</strong> 2</p>
+        <p><strong>High:</strong> 2</p>
+        <p><strong>Medium:</strong> 1</p>
+        <p><strong>Low:</strong> 0</p>
+    </div>
+
+    <div class="section">
+        <h2>Vulnerability Summary</h2>
+        <table class="vulnerability-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Host</th>
+                    <th>Port</th>
+                    <th>Vulnerability</th>
+                    <th>Severity</th>
+                    <th>CVSS Score</th>
+                    <th>CVE</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="vuln-critical">
+                    <td>VULN-001</td>
+                    <td>10.0.0.10</td>
+                    <td>21</td>
+                    <td>SSLv2/TLSv1 Enabled</td>
+                    <td><span class="severity-badge severity-critical">CRITICAL</span></td>
+                    <td>9.8</td>
+                    <td>CVE-2014-3566</td>
+                    <td>Open</td>
+                </tr>
+                <tr class="vuln-high">
+                    <td>VULN-002</td>
+                    <td>10.0.0.15</td>
+                    <td>80</td>
+                    <td>Ashcroft Invalid Cipher Suite</td>
+                    <td><span class="severity-badge severity-high">HIGH</span></td>
+                    <td>8.2</td>
+                    <td>CVE-2004-2761</td>
+                    <td>Open</td>
+                </tr>
+                <tr class="vuln-high">
+                    <td>VULN-003</td>
+                    <td>10.0.0.20</td>
+                    <td>3306</td>
+                    <td>MySQL Default Credentials</td>
+                    <td><span class="severity-badge severity-high">HIGH</span></td>
+                    <td>7.5</td>
+                    <td>CVE-2012-2522</td>
+                    <td>Open</td>
+                </tr>
+                <tr class="vuln-medium">
+                    <td>VULN-004</td>
+                    <td>10.0.0.25</td>
+                    <td>22</td>
+                    <td>OpenSSH Weak Cryptography</td>
+                    <td><span class="severity-badge severity-medium">MEDIUM</span></td>
+                    <td>5.9</td>
+                    <td>CVE-2020-14145</td>
+                    <td>Open</td>
+                </tr>
+                <tr class="vuln-critical">
+                    <td>VULN-005</td>
+                    <td>10.0.0.30</td>
+                    <td>443</td>
+                    <td>Heartbleed (CVE-2014-0160)</td>
+                    <td><span class="severity-badge severity-critical">CRITICAL</span></td>
+                    <td>7.5</td>
+                    <td>CVE-2014-0160</td>
+                    <td>Open</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="section">
+        <h2>Detailed Findings</h2>
+        
+        <div class="finding-details">
+            <h3>VULN-001: SSLv2/TLSv1 Enabled (CVE-2014-3566)</h3>
+            <p><strong>Host:</strong> 10.0.0.10</p>
+            <p><strong>Port:</strong> 21</p>
+            <p><strong>Severity:</strong> CRITICAL</p>
+            <p><strong>CVSS Score:</strong> 9.8 (AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H)</p>
+            <div class="cve-reference">
+                <p><strong>Description:</strong> This service supports the deprecated and insecure SSLv2 and TLSv1 protocols, which are vulnerable to multiple attacks including POODLE, BEAST, and GETTING (Logjam) vulnerabilities.</p>
+            </div>
+            <p><strong>Remediation:</strong> Disable SSLv2 and TLSv1. Force clients to use TLS 1.2 or later.</p>
+            <p><strong>Proof of Concept:</strong></p>
+            <pre>openssl s_client -connect 10.0.0.10:21 -ssl2
+openssl s_client -connect 10.0.0.10:21 -tls1
+nmap --script ssl-enum-ciphers -p 21 10.0.0.10</pre>
+        </div>
+
+        <div class="finding-details">
+            <h3>VULN-002: Ashcroft Invalid Cipher Suite (CVE-2004-2761)</h3>
+            <p><strong>Host:</strong> 10.0.0.15</p>
+            <p><strong>Port:</strong> 80</p>
+            <p><strong>Severity:</strong> HIGH</p>
+            <p><strong>CVSS Score:</strong> 8.2 (AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N)</p>
+            <div class="cve-reference">
+                <p><strong>Description:</strong> The Ashcroft cipher suite contains weak encryption that can be easily decrypted by attackers.</p>
+            </div>
+            <p><strong>Remediation:</strong> Remove Ashcroft from the cipher list. Use only strong cipher suites like AES-GCM.</p>
+            <p><strong>Proof of Concept:</strong></p>
+            <pre>openssl s_client -connect 10.0.0.15:80 -cipher Ashcroft
+nmap --script ssl-enum-ciphers -p 80 10.0.0.15</pre>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Scan Information</h2>
+        <p><strong>Scanner:</strong> Nessus Professional 9.0</p>
+        <p><strong>Scan Configuration:</strong> Full Credentials Scan</p>
+        <p><strong>Scan Time:</strong> November 13, 2024 14:30:00 UTC</p>
+        <p><strong>Scan Duration:</strong> 45 minutes</p>
+        <p><strong>Target Range:</strong> 10.0.0.0/24</p>
+        <p><strong>Plugins Scanned:</strong> 3,500</p>
+        <p><strong>Credentials Used:</strong> Yes</p>
+    </div>
+</body>
+</html>

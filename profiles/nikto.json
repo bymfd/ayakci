@@ -1,0 +1,12 @@
+{
+  "match": "nikto",
+  "report_name": "Nikto Report",
+  "finding": "div.finding, div.item, tr.finding, li.finding",
+  "fields": {
+    "title": {"selector": "h1, h2, h3, .title, .name"},
+    "desc": {"selector": ".description, .msg, p, td"},
+    "poc": {"selector": "pre, .evidence, .uri"},
+    "asset": {"selector": ".host, .target, .ip, .url"},
+    "severity": {"selector": ".severity, .risk"}
+  }
+}

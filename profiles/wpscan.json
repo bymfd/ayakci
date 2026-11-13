@@ -1,0 +1,15 @@
+{
+  "match": "wpscan",
+  "report_name": "WPScan Report",
+  "finding": "div.finding, div.vuln, div.issue, tr.finding, li.finding",
+  "fields": {
+    "title": {"selector": "h1, h2, h3, .title, .name"},
+    "severity": {"selector": ".severity, .risk, .threat-level"},
+    "desc": {"selector": ".description, .details, p"},
+    "poc": {"selector": "pre, .evidence, .request, .response"},
+    "remediation": {"selector": ".remediation, .fix, .recommendation"},
+    "cve": {"selector": ".cve, .cve-id"},
+    "cwe": {"selector": ".cwe"},
+    "asset": {"selector": ".url, .host, .target, .affected"}
+  }
+}

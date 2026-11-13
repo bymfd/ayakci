@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><title>Burp Suite Report</title></head>
+<body>
+<div class="burp-issue">
+  <h2>SQL Injection</h2>
+  <p class="description">Vulnerability found in /api/users search parameter.</p>
+  <pre><code>GET /api/users?id=1' OR '1'='1 HTTP/1.1</code></pre>
+  <div class="remediation"><strong>Fix:</strong> Parameterize query.</div>
+  <p><a href="/admin">Admin panel</a></p>
+</div>
+</body></html>

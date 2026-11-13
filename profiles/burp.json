@@ -1,0 +1,15 @@
+{
+  "match": "burp",
+  "report_name": "Burp Suite Report",
+  "finding": "div.issue, div.burp-issue, .issues > li",
+  "fields": {
+    "title": {"selector": "h1, h2, h3, .issue-name, .name"},
+    "severity": {"selector": ".severity, .risk, .issue-severity"},
+    "desc": {"selector": ".description, .issue-detail, .issue-background"},
+    "poc": {"selector": "pre, .request, .response, .evidence"},
+    "remediation": {"selector": ".remediation, .solution, .fix"},
+    "asset": {"selector": ".url, .host, .asset"},
+    "cve": {"selector": ".cve"},
+    "cvss": {"selector": ".cvss"}
+  }
+}

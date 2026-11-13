@@ -1,0 +1,12 @@
+{
+  "match": "sqlmap",
+  "report_name": "SQLMap Report",
+  "finding": "div.finding, div.inject, table.injection > tbody > tr, li.finding",
+  "fields": {
+    "title": {"selector": "h1, h2, h3, .title, .parameter"},
+    "severity": {"selector": ".severity, .risk"},
+    "desc": {"selector": ".description, .details, p"},
+    "poc": {"selector": "pre, .payload, .evidence"},
+    "asset": {"selector": ".url, .target, .parameter, .uri"}
+  }
+}

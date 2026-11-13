@@ -1,0 +1,15 @@
+{
+  "match": "acunetix|acx",
+  "report_name": "Acunetix Report",
+  "finding": "div.vulnerability, div.finding, .vuln-details, .issue",
+  "fields": {
+    "title": {"selector": "h1, h2, h3, .vuln-name, .title"},
+    "severity": {"selector": ".severity, .risk, .threat-level"},
+    "desc": {"selector": ".description, .details, p"},
+    "poc": {"selector": "pre, .proof, .request, .response, .evidence"},
+    "remediation": {"selector": ".remediation, .recommendation, .fix"},
+    "cve": {"selector": ".cve"},
+    "cwe": {"selector": ".cwe"},
+    "asset": {"selector": ".url, .affected, .host"}
+  }
+}

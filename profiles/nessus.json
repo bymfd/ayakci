@@ -1,0 +1,15 @@
+{
+  "match": "nessus|tenable",
+  "report_name": "Nessus Scan Report",
+  "finding": "div.vuln-box, div.plugin, div.report-item, table.report > tbody > tr",
+  "fields": {
+    "title": {"selector": "h1, h2, h3, .plugin-name, .vuln-title"},
+    "severity": {"selector": ".severity, .risk, .severity-badge, .plugin-severity"},
+    "desc": {"selector": ".synopsis, .description, p"},
+    "poc": {"selector": "pre, .plugin-output, .output"},
+    "remediation": {"selector": ".solution, .remediation"},
+    "cve": {"selector": ".cve"},
+    "cvss": {"selector": ".cvss, .cvss-base"},
+    "asset": {"selector": ".host-header, .host, .asset"}
+  }
+}

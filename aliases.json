@@ -1,0 +1,45 @@
+{
+  "title": ["title", "name", "baslik", "başlık", "vulnerability", "vulnerability_name", "finding", "finding_name"],
+  "desc": ["desc", "description", "aciklama", "açıklama", "details", "detail", "body", "content", "explain"],
+  "poc": ["poc", "proof", "proof_of_concept", "kanit", "kanıt", "reproduction", "steps"],
+  "remediation": ["remediation", "remed", "solution", "cozum", "çözüm", "oneri", "öneri", "fix", "recommendation"],
+  "severity": ["severity", "onem", "önem", "risk", "level", "priority"],
+  "status": ["status", "durum", "state", "phase"],
+  "cve": ["cve", "cve_id", "cveid"],
+  "cvss": ["cvss", "cvss_score", "score"],
+  "cvss_vector": ["cvss_vector", "cvssvec", "vector"],
+  "cwe": ["cwe", "cwe_id", "weakness"],
+  "tags": ["tags", "etiketler", "labels", "label", "category", "categories"],
+  "asset": ["asset", "varlik", "varlık", "host", "target", "url", "endpoint", "affected"],
+  "retest_status": ["retest_status", "retest_result", "retest_sonucu", "retest", "test_result", "test_sonucu"],
+  "retest_by": ["retest_by", "tester", "test_eden", "tested_by", "reviewer"],
+  "retest_date": ["retest_date", "retest_tarihi", "test_date"],
+  "severity_map": {
+    "critical": "Critical", "kritik": "Critical", "acil": "Critical", "crit": "Critical",
+    "high": "High", "yüksek": "High", "onemli": "High", "önemli": "High",
+    "medium": "Medium", "orta": "Medium", "moderate": "Medium", "med": "Medium",
+    "low": "Low", "düşük": "Low", "dusuk": "Low",
+    "info": "Info", "bilgi": "Info", "informational": "Info", "bilgilendirme": "Info"
+  },
+  "status_map": {
+    "open": 1, "açık": 1, "acik": 1, "new": 1, "yeni": 1,
+    "in progress": 2, "devam ediyor": 2, "düzeltiliyor": 2, "duzeltiliyor": 2, "işlemde": 2, "islemde": 2, "in_progress": 2,
+    "fixed": 3, "düzeltilmiş": 3, "duzeltilmis": 3, "giderildi": 3, "solved": 3, "resolved": 3,
+    "won't fix": 4, "düzeltilmeyecek": 4, "duzeltilmeyecek": 4, "giderilmeyecek": 4, "won_t_fix": 4, "wontfix": 4,
+    "retest pending": 5, "retest bekliyor": 5, "yeniden test bekliyor": 5, "retest_pending": 5,
+    "passed": 6, "doğrulandı": 6, "dogrulandi": 6, "test geçti": 6, "test_gecti": 6, "geçti": 6, "gecti": 6, "başarılı": 6, "basarili": 6,
+    "still present": 7, "hâlâ mevcut": 7, "hala mevcut": 7, "test Başarısız": 7, "test basarisiz": 7, "failed": 7,
+    "closed": 8, "kapatıldı": 8, "kapatildi": 8
+  },
+  "retest_status_map": {
+    "passed": "passed", "geçti": "passed", "gecti": "passed", "başarılı": "passed", "basarili": "passed", "doğrulandı": "passed", "dogrulandi": "passed",
+    "failed": "failed", "başarısız": "failed", "basarisiz": "failed", "geçmedi": "failed", "gecmedi": "failed", "hâlâ mevcut": "failed", "hala mevcut": "failed", "still present": "failed",
+    "pending": "pending", "beklemede": "pending", "bekliyor": "pending", "in progress": "pending"
+  },
+  "months": {
+    "ocak": 1, "şubat": 2, "subat": 2, "mart": 3, "nisan": 4, "mayıs": 5, "mayis": 5,
+    "haziran": 6, "temmuz": 7, "ağustos": 8, "agustos": 8, "eylül": 9, "eylul": 9, "ekim": 10, "kas": 11, "aralık": 12, "aralik": 12,
+    "january": 1, "february": 2, "march": 3, "april": 4, "may": 5, "june": 6,
+    "july": 7, "august": 8, "september": 9, "october": 10, "november": 11, "december": 12
+  }
+}

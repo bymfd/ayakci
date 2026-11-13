@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Yönetici Özeti Güvenlik Raporu - Dummy</title>
+    <style>
+        body { font-family: 'Helvetica Neue', Arial, sans-serif; background: #f4f6f9; padding: 30px; color: #333; }
+        .card-grid { display: flex; gap: 15px; margin-bottom: 25px; }
+        .kpi-card { background: #fff; padding: 20px; border-radius: 8px; flex: 1; text-align: center; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+        .kpi-num { font-size: 32px; font-weight: bold; margin: 5px 0; }
+        .c-crit { color: #d9534f; }
+        .c-high { color: #f0ad4e; }
+        .c-med { color: #5bc0de; }
+        .c-low { color: #5cb85c; }
+        .panel { background: #fff; padding: 25px; border-radius: 8px; margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+    <div class="panel">
+        <h1>Bilgi Güvenliği Denetimi - Yönetici Özeti</h1>
+        <p><strong>Kurum:</strong> Dummy Finans A.Ş. | <strong>Referans Çerçeve:</strong> ISO/IEC 27001:2022 & PCI-DSS v4.0</p>
+        <p><strong>Genel Güvenlik Skoru:</strong> 68 / 100 (Orta Riskli Olgunluk Seviyesi)</p>
+    </div>
+
+    <div class="card-grid">
+        <div class="kpi-card"><div>Kritik Bulgular</div><div class="kpi-num c-crit">1</div></div>
+        <div class="kpi-card"><div>Yüksek Bulgular</div><div class="kpi-num c-high">4</div></div>
+        <div class="kpi-card"><div>Orta Bulgular</div><div class="kpi-num c-med">9</div></div>
+        <div class="kpi-card"><div>Düşük / Bilgi</div><div class="kpi-num c-low">12</div></div>
+    </div>
+
+    <div class="panel">
+        <h2>Risk Dağılım Grafiği (Inline SVG Testi)</h2>
+        <svg width="400" height="80" xmlns="http://w3.org">
+            <rect x="0" y="10" width="20" height="30" fill="#d9534f" />
+            <rect x="20" y="10" width="80" height="30" fill="#f0ad4e" />
+            <rect x="100" y="10" width="150" height="30" fill="#5bc0de" />
+            <rect x="250" y="10" width="150" height="30" fill="#5cb85c" />
+            <text x="0" y="60" font-size="12" fill="#333">Kritik (%4) | Yüksek (%15) | Orta (%35) | Düşük (%46)</text>
+        </svg>
+        <h3>Öncelikli Aksiyon Planı</h3>
+        <ol>
+            <li><strong>0-7 Gün:</strong> Dışa açık sunucudaki kritik SSH zafiyeti yamalanmalıdır (PCI-DSS Req 6.3).</li>
+            <li><strong>7-30 Gün:</strong> Web API uç noktalarında giriş doğrulama (input validation) kontrolleri sıkılaştırılmalıdır.</li>
+        </ol>
+    </div>
+</body>
+</html>

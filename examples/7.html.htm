@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>site hackleme testi raporu son hali v2</title>
+</head>
+<body bgcolor="#e6e6e6" style="font-family: Comic Sans MS, Arial;">
+
+<center>
+    <h1 style="color:red;"><u>GÜVENLİK TESTİ RAPORU</u></h1>
+    <h3>Hazırlayan: Cyber_Wolf_99 | Tarih: 13 kasım 2026</h3>
+    <p><b>Hedef Site:</b> ://ornek-site-test.com (ip adresine ping attım açık)</p>
+</center>
+
+<hr size="4" color="black">
+
+<h2>Genel Durum Özeti</h2>
+<p>Merhaba, sitenize dün akşam baktım. Genel olarak fena değil ama 3 tane açık buldum. Biri baya tehlikeli, diğerleri çok önemli değil ama düzeltirseniz iyi olur. Sqlmap ve Nmap ile tarattım.</p>
+
+<br>
+
+<table border="2" width="100%" cellpadding="8" bgcolor="white">
+    <tr bgcolor="yellow">
+        <th>No</th>
+        <th>Bulduğum Açık</th>
+        <th>Tehlike Derecesi</th>
+        <th>Düzeldi mi? (Retest)</th>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>Admin paneli şifre deneme (Brute Force)</td>
+        <td style="color:red;"><b>ÇOK TEHLİKELİ (10/9)</b></td>
+        <td>Evet düzelmiş (Kapalı)</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>Arama kutusunda alert(1) çıkıyor (XSS)</td>
+        <td style="color:orange;">Orta Halli</td>
+        <td>Hala açık duruyor</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>Sunucu versiyonu gözüküyor (Apache 2.4)</td>
+        <td>Düşük / Bilgi</td>
+        <td>Bakılmadı</td>
+    </tr>
+</table>
+
+<br>
+<h2>Detaylar ve Kanıtlar</h2>
+
+<div style="background:white; padding:10px; border:1px dashed red;">
+    <h3>1. Admin Paneli Brute Force</h3>
+    <p><b>Nerede:</b> /admin/login.php sayfası</p>
+    <p><b>Nasıl yaptım:</b> Burp Suite Intruder açtım, rockyou.txt listesini koydum 5000 tane şifre denedim hiç engellemedi. Captcha falan yok.</p>
+    <p><b>Çözüm:</b> 3 kere yanlış girince banlansın.<br>
+    <font color="green"><b>RETEST NOTU (13.11.2026):</b> Az önce tekrar denedim 5. denemede IP engellendi hatası verdi. Eline sağlık.</font></p>
+</div>
+
+<br>
+
+<div style="background:white; padding:10px; border:1px dashed orange;">
+    <h3>2. XSS Açığı Var</h3>
+    <p>Arama yerine <code>&lt;script&gt;alert('hacked')&lt;/script&gt;</code> yazdım ekrana kutu çıktı. Buradan cookie çalınabilir.</p>
+    <p><b>Kanıt:</b> Ekran görüntüsü aldım ama buraya koyamadım, mail ekinde gönderdim (ekran_goruntusu_1.png).</p>
+    <p><font color="red"><b>RETEST NOTU:</b> Hala alert çıkıyor düzeltmemişsiniz.</font>
+</div>
+
+<br>
+
+<div style="background:white; padding:10px;">
+    <h3>3. Bilgi İfşası</h3>
+    <p>Nmap -sV yapınca sunucunun Linux olduğu ve PHP kullandığı yazıyor. Gizlenmesi lazım.</p>
+    <!-- Kasıtlı olarak kapatılmamış p etiketi -->
+</div>
+
+<center><p><small>--- Rapor Bitti ---</small></p></center>
+
+</body>
+</html>

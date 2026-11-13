@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Sızma Testi ve Yeniden Test (Retest) Raporu - Dummy</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; color: #1e293b; max-width: 1050px; margin: 20px auto; padding: 25px; background: #f8fafc; }
+        .container { background: #fff; padding: 30px; border-radius: 8px; border: 1px solid #e2e8f0; }
+        .summary-box { display: flex; gap: 15px; margin: 20px 0; }
+        .stat { flex: 1; padding: 15px; border-radius: 6px; background: #f1f5f9; text-align: center; }
+        .stat strong { display: block; font-size: 24px; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 14px; }
+        th, td { border: 1px solid #cbd5e1; padding: 10px; text-align: left; }
+        th { background: #e2e8f0; }
+        .badge { padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: bold; color: #fff; text-transform: uppercase; }
+        .st-fixed { background: #16a34a; }
+        .st-partial { background: #d97706; }
+        .st-open { background: #dc2626; }
+        .st-accepted { background: #64748b; }
+        .retest-card { border: 1px solid #cbd5e1; border-left: 5px solid #16a34a; padding: 15px; margin-bottom: 15px; border-radius: 4px; }
+        .retest-card.partial { border-left-color: #d97706; }
+        code { background: #f1f5f9; padding: 2px 5px; border-radius: 3px; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Sızma Testi Doğrulama (Retest) Raporu</h1>
+    <p><strong>Hedef Sistem:</strong> Dummy Bankacılık API (v3.1) | <strong>İlk Test:</strong> 10.10.2026 | <strong>Retest Tarihi:</strong> 13.11.2026</p>
+
+    <div class="summary-box">
+        <div class="stat"><span>Toplam Bulgu</span><strong>4</strong></div>
+        <div class="stat" style="color:#16a34a;"><span>Kapatılan (Fixed)</span><strong>2</strong></div>
+        <div class="stat" style="color:#d97706;"><span>Kısmi Çözüm</span><strong>1</strong></div>
+        <div class="stat" style="color:#dc2626;"><span>Hala Açık</span><strong>1</strong></div>
+    </div>
+
+    <h2>1. Retest Durum Karşılaştırma Matrisi</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Bulgu ID</th>
+                <th>Bulgu Başlığı</th>
+                <th>İlk Risk (CVSS)</th>
+                <th>Retest Sonrası Risk</th>
+                <th>Retest Durumu</th>
+                <th>Doğrulama Tarihi</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr data-finding-id="RT-01" data-status="FIXED">
+                <td>RT-01</td>
+                <td>JWT İmza Doğrulama Eksikliği (None Algorithm)</td>
+                <td>Kritik (9.8)</td>
+                <td>Yok (0.0)</td>
+                <td><span class="badge st-fixed">KAPATILDI</span></td>
+                <td>12.11.2026</td>
+            </tr>
+            <tr data-finding-id="RT-02" data-status="PARTIAL">
+                <td>RT-02</td>
+                <td>Şifre Sıfırlama Uç Noktasında Rate-Limit Eksikliği</td>
+                <td>Yüksek (7.5)</td>
+                <td>Düşük (3.1)</td>
+                <td><span class="badge st-partial">KISMİ ÇÖZÜM</span></td>
+                <td>12.11.2026</td>
+            </tr>
+            <tr data-finding-id="RT-03" data-status="OPEN">
+                <td>RT-03</td>
+                <td>Admin Panelinde DOM-Based XSS</td>
+                <td>Orta (6.1)</td>
+                <td>Orta (6.1)</td>
+                <td><span class="badge st-open">AÇIK</span></td>
+                <td>13.11.2026</td>
+            </tr>
+            <tr data-finding-id="RT-04" data-status="ACCEPTED">
+                <td>RT-04</td>
+                <td>Eski TLS 1.1 Protokol Desteği</td>
+                <td>Düşük (3.7)</td>
+                <td>Düşük (3.7)</td>
+                <td><span class="badge st-accepted">RİSK KABUL EDİLDİ</span></td>
+                <td>13.11.2026</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>2. Teknik Doğrulama Detayları</h2>
+
+    <div class="retest-card">
+        <h3>[RT-01] JWT İmza Doğrulama Eksikliği — <span style="color:#16a34a;">KAPATILDI</span></h3>
+        <p><strong>Uygulanan Yama:</strong> Sunucu tarafında <code>alg: "none"</code> başlığı engellenmiş ve RS256 algoritması zorunlu hale getirilmiştir.</p>
+        <p><strong>Retest Kanıtı:</strong> İmzasız token ile gönderilen isteğe sistem artık <code>HTTP/1.1 401 Unauthorized (Invalid Token Signature)</code> yanıtı dönmektedir.</p>
+    </div>
+
+    <div class="retest-card partial">
+        <h3>[RT-02] Rate-Limit Eksikliği — <span style="color:#d97706;">KISMİ ÇÖZÜM</span></h3>
+        <p><strong>Analist Notu:</strong> IP bazlı hız sınırı (dakikada 5 istek) eklenmiştir ancak <code>X-Forwarded-For</code> başlığı değiştirilerek kısıtlama aşılabilmektedir. Kullanıcı ID bazlı sınırlandırma önerilir.</p>
+    </div>
+</div>
+</body>
+</html>

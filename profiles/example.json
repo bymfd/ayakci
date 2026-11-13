@@ -1,0 +1,16 @@
+{
+  "match": "example",
+  "report_name": "Example legacy report",
+  "finding": "div.finding",
+  "fields": {
+    "title": {"selector": "h2"},
+    "severity": {"selector": ".severity"},
+    "desc": {"selector": ".desc"},
+    "poc": {"selector": "pre"},
+    "remediation": {"selector": ".remediation"},
+    "status": {"selector": ".status"},
+    "retest_status": {"selector": ".retest"},
+    "asset": {"selector": ".asset"},
+    "tags": {"selector": ".tags"}
+  }
+}

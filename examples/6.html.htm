@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Multi-Cycle Retest Verification Log - Dummy</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 25px; color: #222; }
+        .finding-wrapper { border: 1px solid #bbb; padding: 20px; margin-bottom: 25px; }
+        .timeline { border-left: 3px solid #3b82f6; padding-left: 15px; margin-top: 15px; }
+        .event { margin-bottom: 15px; background: #f8fafc; padding: 10px; border: 1px solid #e2e8f0; }
+        .event-date { font-size: 12px; color: #64748b; font-weight: bold; }
+        .diff-box { display: flex; gap: 10px; margin-top: 10px; }
+        .diff-col { flex: 1; background: #1e293b; color: #f8fafc; padding: 10px; font-family: monospace; font-size: 12px; }
+    </style>
+</head>
+<body>
+    <h1>Continuous Penetration Testing - Remediation Audit Log</h1>
+    <p><strong>Project:</strong> Dummy Cloud IAM | <strong>Ticket Sync:</strong> JIRA-SEC-409</p>
+
+    <div class="finding-wrapper" id="VULN-882">
+        <h2>VULN-882: IDOR in User Profile Export Endpoint</h2>
+        <p><strong>Current Status:</strong> VERIFIED_FIXED | <strong>Total Retest Cycles:</strong> 2</p>
+
+        <div class="diff-box">
+            <div class="diff-col">
+                <strong>[INITIAL TEST - 2026-10-01]</strong><br>
+                GET /api/export?uid=1002 HTTP/1.1<br>
+                Response: 200 OK (Returned PII data)
+            </div>
+            <div class="diff-col">
+                <strong>[FINAL RETEST - 2026-11-13]</strong><br>
+                GET /api/export?uid=1002 HTTP/1.1<br>
+                Response: 403 Forbidden (Access Denied)
+            </div>
+        </div>
+
+        <h3>Verification Timeline</h3>
+        <div class="timeline">
+            <div class="event" data-cycle="0" data-result="VULNERABLE">
+                <div class="event-date">2026-10-01 — Initial Discovery (Tester: A. Yilmaz)</div>
+                <p>Vulnerability confirmed and reported to engineering team.</p>
+            </div>
+            <div class="event" data-cycle="1" data-result="FAILED_RETEST">
+                <div class="event-date">2026-10-24 — Retest Cycle #1 (Tester: M. Kaya)</div>
+                <p><strong>Result: FAILED (Still Vulnerable).</strong> Developer added check on GET parameter, but changing HTTP method to POST bypassed authorization.</p>
+            </div>
+            <div class="event" data-cycle="2" data-result="PASSED_RETEST">
+                <div class="event-date">2026-11-13 — Retest Cycle #2 (Tester: A. Yilmaz)</div>
+                <p><strong>Result: PASSED (Fixed).</strong> Middleware authorization enforced across all HTTP verbs (GET, POST, PUT).</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

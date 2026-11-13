@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Network Vulnerability Scan Report - Dummy</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; color: #222; }
+        .host-header { background: #2c3e50; color: #fff; padding: 10px 15px; margin-top: 25px; }
+        .vuln-box { border: 1px solid #ccc; margin-bottom: 15px; padding: 15px; border-left: 6px solid #7f8c8d; }
+        .crit { border-left-color: #c0392b; }
+        .high { border-left-color: #e67e22; }
+        .med { border-left-color: #f1c40f; }
+        .meta-table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 13px; }
+        .meta-table td { border: 1px solid #ddd; padding: 6px; }
+        .label { font-weight: bold; background: #f9f9f9; width: 180px; }
+        code { background: #eee; padding: 2px 5px; }
+    </style>
+</head>
+<body>
+    <h1>Infrastructure Vulnerability Assessment Report</h1>
+    <p><strong>Scan Policy:</strong> Full External Network Audit | <strong>Date:</strong> 2026-11-13 | <strong>Scanner Engine:</strong> DummyScan v4.2</p>
+
+    <div class="host-header" data-host="192.168.10.45">
+        <strong>Target Host:</strong> 192.168.10.45 (prod-db-01.internal.local) | <strong>OS:</strong> Ubuntu 22.04.3 LTS
+    </div>
+
+    <div class="vuln-box crit" data-plugin-id="104922">
+        <h3>[CRITICAL] OpenSSH Remote Code Execution (regreSSHion)</h3>
+        <table class="meta-table">
+            <tr><td class="label">Port / Protocol</td><td>22 / TCP (ssh)</td><td class="label">CVSS v3.1 Base</td><td>9.8 (AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H)</td></tr>
+            <tr><td class="label">CVE References</td><td>CVE-2024-6387</td><td class="label">Exploit Available</td><td>Yes (Public)</td></tr>
+        </table>
+        <p><strong>Synopsis:</strong> The remote SSH server is affected by a signal handler race condition vulnerability.</p>
+        <p><strong>Plugin Output:</strong> <code>Installed version: OpenSSH_8.9p1 Ubuntu-3ubuntu0.6 / Fixed version: OpenSSH_9.8p1</code></p>
+        <p><strong>Remediation:</strong> Upgrade OpenSSH package to version 9.8p1 or apply vendor security patches.</p>
+    </div>
+
+    <div class="vuln-box med" data-plugin-id="42873">
+        <h3>[MEDIUM] SSL/TLS Weak Cipher Suites Supported (Sweet32)</h3>
+        <table class="meta-table">
+            <tr><td class="label">Port / Protocol</td><td>443 / TCP (https)</td><td class="label">CVSS v3.1 Base</td><td>5.3 (AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N)</td></tr>
+            <tr><td class="label">CVE References</td><td>CVE-2016-2183</td><td class="label">Exploit Available</td><td>No</td></tr>
+        </table>
+        <p><strong>Synopsis:</strong> The remote service supports the use of medium strength SSL ciphers (3DES).</p>
+        <p><strong>Plugin Output:</strong> <code>Accepted Cipher: TLS_ECDHE_RSA_WITH_3DES_EDE_CBC_SHA</code></p>
+        <p><strong>Remediation:</strong> Reconfigure the web server to disable 64-bit block ciphers (3DES, IDEA).</p>
+    </div>
+</body>
+</html>
